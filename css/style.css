@@ -1,70 +1,123 @@
+/* ===================== */
+/* LOGIN PAGE STYLE */
+/* ===================== */
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    transition: background-color 0.4s ease, color 0.4s ease;
+.login-container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-.hero {
-    height: 400px;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../assets/background.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
+/* kotak login */
+.login-box{
+    width:340px;
+    padding:35px;
+    background:white;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
-.dashboard-card {
-    transition: 0.3s;
-    cursor: pointer;
+/* judul login */
+.login-box h2{
+    margin-bottom:20px;
+    color:#c1121f;
 }
 
-.dashboard-card:hover {
-    transform: scale(1.05);
+/* input login */
+.login-input{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    transition:0.3s;
 }
 
-footer {
-    margin-top: 50px;
+.login-input:focus{
+    border-color:#c1121f;
+    outline:none;
 }
 
-body.gelap, body.dark-mode {
+/* tombol login */
+.login-button{
+    width:100%;
+    padding:10px;
+    border:none;
+    background:#c1121f;
+    color:white;
+    font-weight:bold;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-button:hover{
+    background:#9b0d17;
+}
+
+/* ===================== */
+/* DARK MODE STYLES */
+/* ===================== */
+
+body.dark-mode {
     background-color: #121212;
     color: #ffffff;
 }
 
-body.gelap .card, body.dark-mode .card {
-    background-color: #2c2c2c;
-    color: #fff;
-    border: 1px solid #444;
+body.dark-mode .navbar {
+    background-color: #333 !important;
 }
 
-body.gelap .form-control, body.gelap .form-select,
-body.dark-mode .form-control, body.dark-mode .form-select {
+body.dark-mode .card {
     background-color: #333;
-    color: #fff;
+    color: #ffffff;
     border: 1px solid #555;
 }
 
-body.gelap .modal-content, body.dark-mode .modal-content {
-    background-color: #2c2c2c;
-    color: #fff;
-    border: 1px solid #444;
-}
-
-body.gelap .modal-header, body.dark-mode .modal-header {
-    border-bottom: 1px solid #444;
-}
-
-body.gelap .modal-footer, body.dark-mode .modal-footer {
-    border-top: 1px solid #444;
-}
-
-body.gelap .list-group-item, body.dark-mode .list-group-item {
+body.dark-mode .card-body {
     background-color: #333;
-    color: #fff;
-    border-color: #555;
 }
 
-body.gelap .btn-close, body.dark-mode .btn-close {
-    filter: invert(1);
+body.dark-mode .modal-content {
+    background-color: #333;
+    color: #ffffff;
+}
+
+body.dark-mode .btn-outline-light {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+body.dark-mode .btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #333;
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/background.jpg');
+}
+
+/* ===================== */
+/* HERO SECTION */
+/* ===================== */
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    min-height: 400px;
+}
+
+body.dark-mode .dashboard-card {
+    background-color: #444;
+    color: #ffffff;
+}
+
+body.dark-mode .list-group-item {
+    background-color: #444;
+    color: #ffffff;
+    border-color: #555;
 }

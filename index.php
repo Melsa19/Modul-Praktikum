@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -5,16 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Manajemen Sepatu</title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">CIBADUYUT SHOES</a>
@@ -35,11 +36,28 @@
                 <button id="btn-theme" class="btn btn-outline-light btn-sm">
                     Mode Gelap
                 </button>
+                
+                <?php if(isset($_SESSION['username'])): ?>
+
+                <span class="text-white me-2 ms-3">
+                    Halo, <b><?php echo $_SESSION['username']; ?></b>
+                </span>
+
+                <a href="controller/logout.php" class="btn btn-danger btn-sm">
+                    Logout
+                </a>
+
+                <?php else: ?>
+
+                <a href="login.php" class="btn btn-warning btn-sm ms-3">
+                    Login
+                </a>
+
+                <?php endif; ?>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <div class="hero text-center text-white d-flex align-items-center">
         <div class="container">
             <h1>Sistem Manajemen Sepatu</h1>
@@ -47,7 +65,6 @@
         </div>
     </div>
 
-    <!-- Dashboard -->
     <div class="container my-5">
         <div class="row text-center">
             <div class="col-md-4">
@@ -79,7 +96,6 @@
         </div>
     </div>
 
-    <!-- Modal Wishlist -->
     <div class="modal fade" id="wishlistModal" tabindex="-1" aria-labelledby="wishlistModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -102,12 +118,10 @@
         </div>
     </div>
 
-    <!-- Daftar Sepatu -->
     <div class="container mt-5">
         <h3 class="mb-4">Daftar Sepatu</h3>
         <div class="row">
 
-            <!-- Produk 1 -->
             <div class="col-md-4">
                 <div class="card mb-4">
                     <img src="assets/NIKE_P_6000.jpg" class="card-img-top" alt="Nike P 6000">
@@ -123,7 +137,6 @@
                 </div>
             </div>
 
-            <!-- Produk 2 -->
             <div class="col-md-4">
                 <div class="card mb-4">
                     <img src="assets/AIR_FORCE_1.jpg" class="card-img-top" alt="Nike Air Force 1">
@@ -139,7 +152,6 @@
                 </div>
             </div>
 
-            <!-- Produk 3 -->
             <div class="col-md-4">
                 <div class="card mb-4">
                     <img src="assets/AIR_JORDAN_1_LOW.jpg" class="card-img-top" alt="Nike Air Jordan 1 Low">
@@ -158,7 +170,6 @@
         </div>
     </div>
 
-    <!-- Form Tambah Sepatu -->
     <div class="container mt-5 mb-5">
         <h3 class="mb-4">Tambah Sepatu</h3>
 
@@ -193,12 +204,11 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
         © 2026 Sistem Manajemen Sepatu Cibaduyut
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
