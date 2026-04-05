@@ -1,0 +1,450 @@
+/* ===================== */
+/* LOGIN PAGE STYLE */
+/* ===================== */
+
+.login-container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* kotak login */
+.login-box{
+    width:340px;
+    padding:35px;
+    background:white;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* judul login */
+.login-box h2{
+    margin-bottom:20px;
+    color:#c1121f;
+}
+
+/* input login */
+.login-input{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+.login-input:focus{
+    border-color:#c1121f;
+    outline:none;
+}
+
+/* tombol login */
+.login-button{
+    width:100%;
+    padding:10px;
+    border:none;
+    background:#c1121f;
+    color:white;
+    font-weight:bold;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-button:hover{
+    background:#9b0d17;
+}
+
+/* ===================== */
+/* NAVBAR CUSTOM */
+/* ===================== */
+
+.navbar-custom {
+    background: rgba(33, 37, 41, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition: 0.3s;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.btn-theme-nav, .btn-wishlist-nav {
+    transition: all 0.3s ease;
+}
+
+.btn-theme-nav:hover, .btn-wishlist-nav:hover {
+    transform: scale(1.05);
+}
+
+/* ===================== */
+/* IMAGE STYLES */
+/* ===================== */
+
+.img-product {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card-product:hover .img-product {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.card-product {
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-product:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* ===================== */
+/* FORM STYLES */
+/* ===================== */
+
+.form-input {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: #c1121f;
+    box-shadow: 0 0 0 3px rgba(193, 18, 31, 0.1);
+    outline: none;
+}
+
+.card-form {
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.btn-submit {
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+/* ===================== */
+/* FOOTER */
+/* ===================== */
+
+.footer-custom {
+    background: rgba(33, 37, 41, 0.95) !important;
+    margin-top: 50px;
+    border-top: 2px solid #c1121f;
+}
+
+/* ===================== */
+/* DARK MODE STYLES */
+/* ===================== */
+
+body.dark-mode {
+    background-color: #0d1117;
+    color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+    background: rgba(20, 25, 30, 0.98) !important;
+    border-bottom: 1px solid #30363d;
+}
+
+body.dark-mode .navbar-brand {
+    color: #fff !important;
+}
+
+body.dark-mode .navbar-toggler {
+    border-color: #fff;
+}
+
+body.dark-mode .container {
+    color: #e0e0e0;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h5,
+body.dark-mode h4,
+body.dark-mode h6 {
+    color: #ffffff;
+}
+
+body.dark-mode p {
+    color: #c9d1d9;
+}
+
+body.dark-mode .card,
+body.dark-mode .card-product {
+    background-color: #161b22;
+    color: #e0e0e0;
+    border: 1px solid #30363d;
+}
+
+body.dark-mode .card-body {
+    background-color: #161b22;
+    color: #e0e0e0;
+}
+
+body.dark-mode .card-text {
+    color: #c9d1d9;
+}
+
+body.dark-mode .modal-content {
+    background-color: #161b22;
+    color: #e0e0e0;
+    border: 1px solid #30363d;
+}
+
+body.dark-mode .modal-header {
+    border-color: #30363d;
+}
+
+body.dark-mode .modal-footer {
+    border-color: #30363d;
+}
+
+body.dark-mode .modal-title {
+    color: #ffffff;
+}
+
+body.dark-mode .list-group-item {
+    background-color: #0d1117;
+    color: #e0e0e0;
+    border-color: #30363d;
+}
+
+body.dark-mode .list-group-item.active {
+    background-color: #c1121f;
+    border-color: #c1121f;
+}
+
+body.dark-mode .btn-outline-light {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+body.dark-mode .btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #161b22;
+}
+
+body.dark-mode .btn-outline-warning {
+    color: #ffc107;
+    border-color: #ffc107;
+}
+
+body.dark-mode .btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #161b22;
+}
+
+body.dark-mode .btn-outline-danger {
+    color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+body.dark-mode .btn-outline-danger:hover {
+    background-color: #ff6b6b;
+    color: #161b22;
+}
+
+body.dark-mode .btn-close {
+    filter: invert(1);
+}
+
+body.dark-mode .dashboard-card {
+    background-color: #161b22;
+    color: #ffffff;
+    border: 1px solid #30363d;
+}
+
+body.dark-mode .dashboard-card h5,
+body.dark-mode .dashboard-card h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-input,
+body.dark-mode .form-select {
+    background-color: #0d1117;
+    color: #e0e0e0;
+    border-color: #30363d;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-input:focus,
+body.dark-mode .form-select:focus {
+    background-color: #0d1117;
+    color: #e0e0e0;
+    border-color: #c1121f;
+    box-shadow: 0 0 0 3px rgba(193, 18, 31, 0.2);
+}
+
+body.dark-mode .form-label {
+    color: #e0e0e0;
+}
+
+body.dark-mode .btn-primary {
+    background-color: #c1121f;
+    border-color: #c1121f;
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: #9b0d17;
+    border-color: #9b0d17;
+}
+
+body.dark-mode .btn-primary:disabled {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+body.dark-mode .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+body.dark-mode .btn-success:hover {
+    background-color: #218838;
+    border-color: #218838;
+}
+
+body.dark-mode .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+body.dark-mode .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+
+body.dark-mode .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../assets/background.jpg');
+}
+
+body.dark-mode .text-white {
+    color: #ffffff !important;
+}
+
+body.dark-mode a {
+    color: #58a6ff;
+}
+
+body.dark-mode a:hover {
+    color: #79c0ff;
+}
+
+body.dark-mode .badge {
+    background-color: #c1121f;
+}
+
+body.dark-mode .row {
+    color: #e0e0e0;
+}
+
+/* ===================== */
+/* HERO SECTION */
+/* ===================== */
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    min-height: 400px;
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===================== */
+/* RESPONSIF DESIGN */
+/* ===================== */
+
+@media (max-width: 768px) {
+    .hero {
+        height: 40vh;
+        min-height: 250px;
+    }
+    
+    .img-product {
+        height: 180px;
+    }
+    
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    .btn-theme-nav, .btn-wishlist-nav {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.6rem !important;
+    }
+}
+
+/* ===================== */
+/* DASHBOARD CARD */
+/* ===================== */
+
+.dashboard-card {
+    background-color: #f8f9fa;
+    color: #111;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+}
+
+/* ===================== */
+/* ANIMATION EFFECTS */
+/* ===================== */
+
+.btn-primary, .btn-success, .btn-danger {
+    transition: all 0.3s ease;
+}
+
+.btn-primary:disabled, .btn-secondary {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
