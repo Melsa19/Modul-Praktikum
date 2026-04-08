@@ -6,6 +6,7 @@
     <title>Sistem Manajemen Sepatu</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
 </head>
@@ -115,93 +116,87 @@
     </div>
 
     <div class="container mt-5">
-        <h3 class="mb-4">Daftar Sepatu</h3>
-        <a href="{{ route('products') }}" class="btn btn-primary mb-3">Lihat Semua Produk </a>
-        <div class="row">
+        <div class="d-flex justify-content-between mb-3">
+            <h3 class="mb-4">Daftar Sepatu</h3>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahProdukModal">Tambah Produk</button>
+        </div>
 
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="{{ asset('assets/NIKE_P_6000.jpg') }}" class="card-img-top img-product" alt="Nike P 6000">
-                    <div class="card-body">
-                        <h5 class="card-title">Nike P 6000</h5>
-                        <p class="card-text">Harga: Rp 1.420.000</p>
-                        <p class="card-text stok-text">Stok: 10</p>
-                        <div class="d-flex justify-content-between">
-                            <button class="btn btn-primary w-50 me-2 tombol-beli">Beli</button>
-                            <button class="btn btn-outline-danger w-50 btn-wishlist" data-product="Nike P 6000">Wishlist</button>
+        <div class="row" id="container-barang">
+            @foreach ($products as $item)
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mt-2">{{ $item->product_name }}</h5>
+                            <span class="badge bg-secondary mb-2">{{ $item->category->category_name ?? 'Tanpa Kategori' }}</span>
+                            <p class="card-text text-danger">
+                                Rp {{ number_format($item->product_price, 0, ',', '.') }}
+                            </p>
+                            <p class="card-text">Stok: {{ $item->product_stock }}</p>
+
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-primary btn-detail w-50 me-2">Beli</button>
+                                <button class="btn btn-outline-danger btn-wishlist w-50">❤️ Wishlist</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="{{ asset('assets/AIR_FORCE_1.jpg') }}" class="card-img-top img-product" alt="Nike Air Force 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Nike Air Force 1</h5>
-                        <p class="card-text">Harga: Rp 1.529.000</p>
-                        <p class="card-text stok-text">Stok: 10</p>
-                        <div class="d-flex justify-content-between">
-                            <button class="btn btn-primary w-50 me-2 tombol-beli">Beli</button>
-                            <button class="btn btn-outline-danger w-50 btn-wishlist" data-product="Nike Air Force 1">Wishlist</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="{{ asset('assets/AIR_JORDAN_1_LOW.jpg') }}" class="card-img-top img-product" alt="Nike Air Jordan 1 Low">
-                    <div class="card-body">
-                        <h5 class="card-title">Nike Air Jordan 1 Low</h5>
-                        <p class="card-text">Harga: Rp 1.729.000</p>
-                        <p class="card-text stok-text">Stok: 10</p>
-                        <div class="d-flex justify-content-between">
-                            <button class="btn btn-primary w-50 me-2 tombol-beli">Beli</button>
-                            <button class="btn btn-outline-danger w-50 btn-wishlist" data-product="Nike Air Jordan 1 Low">Wishlist</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
 
-    <div class="container mt-5 mb-5">
-        <h3 class="mb-4">Tambah Sepatu</h3>
-
-        <div class="card p-4 card-form">
-            <form>
-                <div class="mb-3">
-                    <label class="form-label">Nama Sepatu</label>
-                    <input type="text" class="form-control form-input" placeholder="Masukkan nama sepatu">
+    <div class="modal fade" id="tambahProdukModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="tambahProdukModalLabel">Tambah Produk</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Harga</label>
-                    <input type="number" class="form-control form-input" placeholder="Masukkan harga sepatu">
-                </div>
+                <form action="{{ route('products.store') }}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        
+                        <div class="mb-3">
+                            <label for="product_name" class="form-label">Nama Produk</label>
+                            <input type="text" class="form-control" id="product_name" name="product_name" required>
+                        </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Stok</label>
-                    <input type="number" class="form-control form-input" placeholder="Masukkan jumlah stok">
-                </div>
+                        <div class="mb-3">
+                            <label for="category_id" class="form-label">Kategori</label>
+                            <select class="form-control" id="category_id" name="category_id" required>
+                                <option value="">Pilih Kategori</option>
+                                @foreach ($categories as $cat)
+                                    <option value="{{ $cat->category_id }}">
+                                        {{ $cat->category_name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Kategori</label>
-                    <select class="form-select form-input">
-                        <option>Running</option>
-                        <option>Basketball</option>
-                        <option>Casual</option>
-                    </select>
-                </div>
+                        <div class="mb-3">
+                            <label for="product_price" class="form-label">Harga Produk</label>
+                            <input type="number" class="form-control" id="product_price" name="product_price" required>
+                        </div>
 
-                <button type="submit" class="btn btn-success btn-submit">Simpan</button>
-            </form>
+                        <div class="mb-3">
+                            <label for="product_stock" class="form-label">Stok Produk</label>
+                            <input type="number" class="form-control" id="product_stock" name="product_stock" required>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kembali</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle me-1"></i>Simpan Produk
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
-    <footer class="bg-dark text-white text-center py-3 footer-custom">
+    <footer class="bg-dark text-white text-center py-3 footer-custom mt-5">
         © 2026 Sistem Manajemen Sepatu Cibaduyut
     </footer>
 
